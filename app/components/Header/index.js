@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import CreateWalletModal from "../Create-wallet";
 import { motion, AnimatePresence } from "framer-motion";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,10 +37,29 @@ const Header = () => {
 
       const result = await response.json();
       console.log("User created:", result);
+      toast.success("🦄 User created successfully!", {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       closeModal();
     } catch (error) {
       console.error("Error creating user:", error);
-      // Handle error (e.g., show error message to user)
+      toast.error("🦄 Wow so easy!", {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   };
 
@@ -67,6 +88,18 @@ const Header = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </header>
   );
 };
