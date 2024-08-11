@@ -36,21 +36,34 @@ const Header = () => {
       }
 
       const result = await response.json();
-      console.log("User created:", result);
-      toast.success("🦄 User created successfully!", {
-        position: "bottom-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      //   console.log("User created:", result);
+      const walletAddress = result.result.wallet.wallet_address;
+      //   console.log("Wallet address:", walletAddress);
+      // Store the wallet address in sessionStorage
+      sessionStorage.setItem("walletAddress", walletAddress);
+
+      if (!walletAddress) {
+        throw new Error("Wallet address not found in the response");
+      }
+
+      toast.success(
+        `🦄 User created successfully!
+        Wallet address: ${walletAddress}`,
+        {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        }
+      );
       closeModal();
     } catch (error) {
       console.error("Error creating user:", error);
-      toast.error("🦄 Wow so easy!", {
+      toast.error("🦄 Error creating user", {
         position: "bottom-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -60,6 +73,8 @@ const Header = () => {
         progress: undefined,
         theme: "light",
       });
+      // Don't send the request if there's an error
+      return;
     }
   };
 
@@ -73,7 +88,17 @@ const Header = () => {
           onClick={openModal}
           className="border rounded-md py-2 px-4 hover:bg-black hover:text-white transition-all duration-300"
         >
-          Create Wallet
+          {sessionStorage.getItem("walletAddress") ? (
+            <span className="text-sm">
+              {`${sessionStorage
+                .getItem("walletAddress")
+                .slice(0, 6)}...${sessionStorage
+                .getItem("walletAddress")
+                .slice(-4)}`}
+            </span>
+          ) : (
+            "Create Wallet"
+          )}
         </button>
       </div>
       <AnimatePresence>
