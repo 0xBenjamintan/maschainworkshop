@@ -88,11 +88,12 @@ const Header = () => {
           onClick={openModal}
           className="border rounded-md py-2 px-4 hover:bg-black hover:text-white transition-all duration-300"
         >
-          {sessionStorage.getItem("walletAddress") ? (
+          {typeof window !== "undefined" &&
+          window.sessionStorage.getItem("walletAddress") ? (
             <span className="text-sm">
-              {`${sessionStorage
+              {`${window.sessionStorage
                 .getItem("walletAddress")
-                .slice(0, 6)}...${sessionStorage
+                .slice(0, 6)}...${window.sessionStorage
                 .getItem("walletAddress")
                 .slice(-4)}`}
             </span>
