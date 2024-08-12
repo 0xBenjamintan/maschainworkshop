@@ -1,3 +1,13 @@
+# This is a project template for APUBCC Devmatch 2024 Hackathon
+
+The purpose of this template is to facilitate new developers to quickly get a hands-on approach and start developing using Maschain's API.
+
+This project sets up the basic functions such as:
+
+1. Creating User Wallet
+2. Minting Token
+3. Transferring Token
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -16,21 +26,12 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Obtain Necessary Keys from Maschain
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Navigate to https://portal-testnet.maschain.com/ to get the necessary keys.
 
-## Learn More
+In the .env.example file, replace the values with your own key, and rename the file to just ".env" or ".env.local"
 
-To learn more about Next.js, take a look at the following resources:
+# Have fun building
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+> Contact me or the team if you have any questions!
