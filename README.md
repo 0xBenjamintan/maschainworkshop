@@ -35,4 +35,7 @@ In the .env.example file, replace the values with your own key, and rename the f
 
 # Have fun building
 
-> Contact me or the team if you have any questions!
+```bash
+Contact me or the team if you have any questions
+@OxBenjamintan - AKA LengzaiBen
+```
